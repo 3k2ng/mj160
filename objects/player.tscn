@@ -25,6 +25,7 @@ script = ExtResource("1_dcg5u")
 z_index = 5
 scale = Vector2(0.78125, 1)
 sprite_frames = SubResource("SpriteFrames_mnr5j")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rbbbu")
