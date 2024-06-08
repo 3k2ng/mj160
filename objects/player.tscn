@@ -45,5 +45,3 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rbbbu")
-
-[node name="Camera2D" type="Camera2D" parent="."]
