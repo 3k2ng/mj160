@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 
+@onready var sprite = $AnimatedSprite2D
+
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -9,6 +12,11 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
+	handle_inputs(delta)
+	move_and_slide()
+	handle_animations()
+
+func handle_inputs(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -25,4 +33,10 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	move_and_slide()
+func handle_animations():
+	if not is_on_floor():
+		sprite.play("jump")
+	elif velocity.x != 0.0:
+		sprite.play("run")
+	else:
+		sprite.play("idle")

@@ -10,7 +10,23 @@ animations = [{
 "texture": ExtResource("2_hru87")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hru87")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hru87")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -23,9 +39,9 @@ script = ExtResource("1_dcg5u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
-scale = Vector2(0.78125, 1)
 sprite_frames = SubResource("SpriteFrames_mnr5j")
-autoplay = "default"
+animation = &"jump"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_rbbbu")
