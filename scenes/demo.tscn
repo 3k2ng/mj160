@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://6tnt2x3vwi6t"]
+[gd_scene load_steps=4 format=3 uid="uid://6tnt2x3vwi6t"]
 
 [ext_resource type="PackedScene" uid="uid://bresx5varodj3" path="res://scenes/levels/testmap_01.tscn" id="1_3atsq"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_5a7pm"]
+[ext_resource type="PackedScene" uid="uid://caovab6637y8m" path="res://objects/player.tscn" id="2_bsv18"]
 
 [node name="Demo" type="Node"]
+script = ExtResource("1_5a7pm")
+maps = Array[PackedScene]([ExtResource("1_3atsq")])
 
-[node name="testmap01" parent="." instance=ExtResource("1_3atsq")]
+[node name="Player" parent="." instance=ExtResource("2_bsv18")]
