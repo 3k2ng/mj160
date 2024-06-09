@@ -15,6 +15,7 @@ var C_static = Vector2(0,0)
 var timer = 0.0
 var last_launch = -15.0
 
+var speed_modifier
 
 func exponent(b, x):
 	var result = 1
@@ -35,6 +36,9 @@ func normalize(vec):
 func _physics_process(delta):
 	
 	var C = get_viewport().get_mouse_position()
+	
+	speed_modifier = 1 + timer/15.0
+	var monster_speed = 5.0 + speed_modifier
 		
 	#print(stage)
 	#print("v:")
@@ -42,10 +46,10 @@ func _physics_process(delta):
 	#print("a:")
 	#print(acceleration)
 	#print("r:")
-	#if(stage < 2):
-		#print(length(position - C))
-	#else:
-		#print(length(position - C_static))
+	if(stage < 2):
+		print(length(position - C))
+	else:
+		print(length(position - C_static))
 	
 	# finding the circle
 	if stage == 0:
@@ -56,7 +60,7 @@ func _physics_process(delta):
 		var beta = atan2(R,length(u))
 		var theta = alpha - beta
 	
-		acceleration = -2*(position - C - velocity * 8.0)/(8.0*8.0)
+		acceleration = -2*(position - C - velocity * monster_speed)/(monster_speed * monster_speed)
 		#steering
 		if length(u) < 3.5*R and length(u) > R + epsilon and dot(velocity, u) < 0:
 			if(length(u) > 2*R):
@@ -75,7 +79,6 @@ func _physics_process(delta):
 				
 				var r = (dot(u,u) - exponent(R + epsilon, 2))/(2.0*(R + epsilon - dot(u,unit_a_c)))
 				acceleration += dot(velocity, velocity)/r * unit_a_c
-				#acceleration = length(acceleration) * normalize(unit_a_c - dot(unit_v, unit_a_c) * unit_v)
 
 			
 			else:
@@ -99,7 +102,7 @@ func _physics_process(delta):
 		position = C + N * R
 		acceleration = -4*N
 		velocity = velocity - length(velocity)*dot(N, normalize(velocity))*N
-		if timer - last_launch > 10.0:
+		if timer - last_launch > 15.0/speed_modifier:
 			stage = 2
 			x_0 = position
 			velocity = Vector2(0,0)
@@ -145,5 +148,5 @@ func _physics_process(delta):
 	position += velocity * delta
 	timer += delta
 	
-	#print("\n")
+	print("\n")
 	move_and_slide()
