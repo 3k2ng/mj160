@@ -33,7 +33,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnk03"]
 size = Vector2(64, 128)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_dcg5u")
 JUMP_VELOCITY = -1100.0
 
