@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcpxwd8mjx6xf"]
+
+[ext_resource type="Script" path="res://scenes/shadow_moster.gd" id="1_u5hfg"]
+[ext_resource type="Texture2D" uid="uid://ctjpwq0bdxfoo" path="res://icon.svg" id="2_wur7i"]
+[ext_resource type="Script" path="res://scenes/monster_sprite.gd" id="3_rvu11"]
+[ext_resource type="Script" path="res://scenes/monster_hitbox.gd" id="4_an0dy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g6w84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wur7i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7w7hp"]
+radius = 56.0
+height = 140.0
+
+[node name="ShadowMoster" type="CharacterBody2D"]
+script = ExtResource("1_u5hfg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_g6w84")
+autoplay = "default"
+script = ExtResource("3_rvu11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7w7hp")
+script = ExtResource("4_an0dy")
