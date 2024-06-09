@@ -30,18 +30,19 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbbbu"]
-radius = 49.0
-height = 126.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnk03"]
+size = Vector2(64, 128)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dcg5u")
+JUMP_VELOCITY = -1100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
+scale = Vector2(0.5, 1)
 sprite_frames = SubResource("SpriteFrames_mnr5j")
 animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_rbbbu")
+shape = SubResource("RectangleShape2D_xnk03")
