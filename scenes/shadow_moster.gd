@@ -42,10 +42,10 @@ func _physics_process(delta):
 	#print("a:")
 	#print(acceleration)
 	#print("r:")
-	if(stage < 2):
-		print(length(position - C))
-	else:
-		print(length(position - C_static))
+	#if(stage < 2):
+		#print(length(position - C))
+	#else:
+		#print(length(position - C_static))
 	
 	# finding the circle
 	if stage == 0:
