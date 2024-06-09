@@ -23,7 +23,7 @@ func handle_inputs(delta):
 		velocity.y += gravity * delta * gravity_scale
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or is_on_wall()):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
