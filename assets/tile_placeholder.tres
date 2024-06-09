@@ -1,6 +1,6 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://d33cof7vau5yd"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bhicrxa5e5dsa"]
 
-[ext_resource type="Texture2D" uid="uid://dqapf1oh305p6" path="res://assets/tile_placeholder.png" id="1_djlfy"]
+[ext_resource type="Texture2D" path="res://assets/tile_placeholder.png" id="1_djlfy"]
 [ext_resource type="PackedScene" uid="uid://qxk5b8p43hcu" path="res://objects/tiles/exit_door.tscn" id="2_86abg"]
 [ext_resource type="PackedScene" uid="uid://d2xlov327oegq" path="res://objects/tiles/enter_door.tscn" id="3_41idl"]
 [ext_resource type="PackedScene" uid="uid://c526og5aiqxrp" path="res://objects/tiles/light_switch.tscn" id="4_ea1nu"]

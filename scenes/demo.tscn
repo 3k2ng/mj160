@@ -10,3 +10,4 @@ script = ExtResource("1_5a7pm")
 maps = Array[PackedScene]([ExtResource("1_3atsq"), ExtResource("3_pcirs")])
 
 [node name="Player" parent="." instance=ExtResource("2_bsv18")]
+texture_filter = 1

@@ -93,7 +93,7 @@ script = ExtResource("1_dcg5u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
-scale = Vector2(2.05, 2.05)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_mnr5j")
 animation = &"idle"
 autoplay = "idle"
