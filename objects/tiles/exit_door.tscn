@@ -13,7 +13,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n0nal"]
 size = Vector2(64, 64)
 
-[node name="EnterDoor" type="AnimatedSprite2D"]
+[node name="ExitDoor" type="AnimatedSprite2D" groups=["exit_door"]]
 sprite_frames = SubResource("SpriteFrames_sh4dn")
 animation = &"close"
 script = ExtResource("1_ggj4w")
