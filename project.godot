@@ -11,8 +11,20 @@ config_version=5
 [application]
 
 config/name="mj160"
+run/main_scene="res://scenes/demo.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1024
+window/size/viewport_height=768
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
+
+[physics]
+
+2d/default_gravity=2940.0
 
 [rendering]
 
