@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dcpxwd8mjx6xf"]
+[gd_scene load_steps=27 format=3 uid="uid://ocpoddrkr0ca"]
 
 [ext_resource type="Script" path="res://scenes/shadow_moster.gd" id="1_u5hfg"]
 [ext_resource type="Texture2D" uid="uid://cm7beumnxq5oj" path="res://assets/monster/shadow_guy.png" id="2_tpb6u"]

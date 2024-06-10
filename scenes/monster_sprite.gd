@@ -7,19 +7,20 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var u = get_parent().position - get_parent().C
-	
-	if get_parent().length(u) < 4 * get_parent().R:
-		if abs(u.x) >= abs(u.y):
-			if u.x >= 0:
-				animation = "left"
+	if get_parent().C:
+		var u = get_parent().position - get_parent().C
+		
+		if get_parent().length(u) < 4 * get_parent().R:
+			if abs(u.x) >= abs(u.y):
+				if u.x >= 0:
+					animation = "left"
+				else:
+					animation = "right"
 			else:
-				animation = "right"
+				if u.y >= 0:
+					animation = "up"
+				else:
+					animation = "down"
 		else:
-			if u.y >= 0:
-				animation = "up"
-			else:
-				animation = "down"
-	else:
-		animation = "default"
+			animation = "default"
 

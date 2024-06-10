@@ -32,9 +32,12 @@ func switch_light():
 	if not switched:
 		$TileMap.modulate = Color(0.1, 0.1, 0.1)
 		exit_door.disabled = false
+		$ShadowMoster.position = monster_spawn_position
+		$ShadowMoster.show()
 	else:
 		$TileMap.modulate = Color(1, 1, 1)
 		exit_door.disabled = true
+		$ShadowMoster.hide()
 	switched = not switched
 	emit_signal("light_switched", not switched)
 
