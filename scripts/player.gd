@@ -8,6 +8,11 @@ extends CharacterBody2D
 @export var SPEED = 600.0
 @export var JUMP_VELOCITY = -500.0
 
+var facing = 1
+
+const COYOTE_TIME_MAX = 9
+var coyote_time = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -23,8 +28,11 @@ func handle_inputs(delta):
 		velocity.y += gravity * delta * gravity_scale
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or is_on_wall()):
-		velocity.y = JUMP_VELOCITY
+	if coyote_time >= 0: coyote_time -= 1
+	if Input.is_action_just_pressed("ui_accept"):
+		coyote_time = COYOTE_TIME_MAX
+		if (is_on_floor() or is_on_wall()) and coyote_time > 0:
+			velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -32,9 +40,16 @@ func handle_inputs(delta):
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED/3.0)
 
 func handle_animations():
+	if velocity.x > 0.0: # right
+		facing = 1
+		sprite.flip_h = false
+	elif velocity.x < 0.0: # left
+		facing = -1
+		sprite.flip_h = true
+	
 	if not is_on_floor():
 		sprite.play("jump")
 	elif velocity.x != 0.0:
