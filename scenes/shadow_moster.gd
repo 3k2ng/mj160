@@ -92,7 +92,7 @@ func _physics_process(delta):
 			acceleration -= 5.0 * (velocity + acceleration * delta)
 			
 		elif length(position - C) <= R + 2*epsilon:
-			stage = 0
+			stage = 1
 			position = C + normalize(position - C) * R
 			velocity = velocity - length(velocity)*dot(normalize(-u), normalize(velocity))*normalize(-u)
 			acceleration = length(velocity)*length(velocity)/R * normalize(-u)
