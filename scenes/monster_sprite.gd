@@ -7,7 +7,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_parent().C:
+	if get_parent().C != null:
 		var u = get_parent().position - get_parent().C
 		
 		if get_parent().length(u) < 4 * get_parent().R:
