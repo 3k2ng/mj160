@@ -170,11 +170,10 @@ size = Vector2(64, 111)
 texture_filter = 1
 scale = Vector2(2, 2)
 script = ExtResource("1_dcg5u")
-SPEED = 1000.0
+SPEED = 900.0
 JUMP_VELOCITY = -1100.0
 WALL_JUMP_VELOCITY = 800.0
-ACCEL = 70.0
-COYOTE_TIME_MAX = 6
+ACCEL = 60.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 5
