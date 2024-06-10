@@ -1,10 +1,10 @@
-[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://d33cof7vau5yd"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://dwm0d6q55e3vd"]
 
 [ext_resource type="PackedScene" uid="uid://qxk5b8p43hcu" path="res://objects/tiles/exit_door.tscn" id="1_fl54l"]
 [ext_resource type="PackedScene" uid="uid://d2xlov327oegq" path="res://objects/tiles/enter_door.tscn" id="2_7545g"]
 [ext_resource type="PackedScene" uid="uid://c526og5aiqxrp" path="res://objects/tiles/light_switch.tscn" id="3_ra704"]
 [ext_resource type="PackedScene" uid="uid://c2v2w55xpefrl" path="res://objects/tiles/spawn_door.tscn" id="4_ggnmv"]
-[ext_resource type="Texture2D" uid="uid://taxbgeytr14v" path="res://assets/tile.png" id="5_ofti2"]
+[ext_resource type="Texture2D" path="res://assets/tile.png" id="5_ofti2"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_d3ctr"]
 scenes/3/scene = ExtResource("3_ra704")

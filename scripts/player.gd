@@ -11,6 +11,9 @@ extends CharacterBody2D
 @onready var wall_sfx = $WallSFX
 var was_touching_wall = false
 
+@onready var land_sfx = $LandSFX
+var was_touching_floor = false
+
 @export var gravity_scale : float = 1
 
 @export var SPEED: float = 600.0
@@ -95,6 +98,13 @@ func handle_animations():
 		was_touching_wall = true
 	else:
 		was_touching_wall = false
+	
+	if is_on_floor():
+		if was_touching_floor == false:
+			land_sfx.play()
+		was_touching_floor = true
+	else:
+		was_touching_floor = false
 
 
 func light_switched_off():
