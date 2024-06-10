@@ -23,9 +23,13 @@ func _on_tile_map_child_entered_tree(node):
 		node.connect("switched", switch_light)
 
 func switch_light():
-	$TileMap.modulate = Color(0.1, 0.1, 0.1)
-	switched = true
-	exit_door.disabled = false
+	if not switched:
+		$TileMap.modulate = Color(0.1, 0.1, 0.1)
+		exit_door.disabled = false
+	else:
+		$TileMap.modulate = Color(1, 1, 1)
+		exit_door.disabled = true
+	switched = not switched
 
 func signal_completed():
 	emit_signal("completed")
