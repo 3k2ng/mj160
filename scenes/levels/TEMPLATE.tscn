@@ -11,6 +11,7 @@ anchor_mode = 0
 zoom = Vector2(0.5, 0.5)
 
 [node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
 tile_set = ExtResource("2_cg2me")
 format = 2
 layer_0/name = "Background"
