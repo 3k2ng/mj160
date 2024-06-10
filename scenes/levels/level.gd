@@ -4,6 +4,8 @@ signal initialised
 
 signal completed
 
+signal light_switched
+
 var spawn_position : Vector2
 
 var monster_spawn_position : Vector2
@@ -30,10 +32,14 @@ func switch_light():
 	if not switched:
 		$TileMap.modulate = Color(0.1, 0.1, 0.1)
 		exit_door.disabled = false
+		$ShadowMoster.position = monster_spawn_position
+		$ShadowMoster.show()
 	else:
 		$TileMap.modulate = Color(1, 1, 1)
 		exit_door.disabled = true
+		$ShadowMoster.hide()
 	switched = not switched
+	emit_signal("light_switched", not switched)
 
 func signal_completed():
 	emit_signal("completed")

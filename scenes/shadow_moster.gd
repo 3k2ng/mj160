@@ -35,8 +35,8 @@ func normalize(vec):
 	return vec/length(vec)
 	
 func _physics_process(delta):
-	
-	C = get_viewport().get_mouse_position()
+	#C = get_tree().get_first_node_in_group("player").position
+	C = get_tree().get_first_node_in_group("player").global_position
 	
 	speed_modifier = 1 + timer/15.0
 	var monster_speed = 5.0 + speed_modifier
@@ -145,10 +145,7 @@ func _physics_process(delta):
 		if timer - last_launch > 1.7:
 			stage = 0
 			
-	
 	velocity += acceleration * delta
-	position += velocity * delta
 	timer += delta
-	
-	#print("\n")
-	move_and_slide()
+	if visible:
+		move_and_slide()

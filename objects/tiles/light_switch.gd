@@ -4,8 +4,14 @@ extends AnimatedSprite2D
 
 signal switched
 
+var on = true
+
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("player"):
-		play("switch")
+	if body.is_in_group("player") and $Timer.time_left == 0:
+		if on:
+			play("switch")
+		else:
+			play_backwards("switch")
 		emit_signal("switched")
-		switch_sfx.play()
+		on = not on
+		$Timer.start()
