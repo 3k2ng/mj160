@@ -8,6 +8,9 @@ extends CharacterBody2D
 
 @onready var jump_sfx = $JumpSFX
 
+@onready var wall_sfx = $WallSFX
+var was_touching_wall = false
+
 @export var gravity_scale : float = 1
 
 @export var SPEED: float = 600.0
@@ -85,6 +88,13 @@ func handle_animations():
 	else:
 		sprite.play(prefix + "idle")
 		footsteps_timer.stop()
+	
+	if is_on_wall():
+		if was_touching_wall == false:
+			wall_sfx.play()
+		was_touching_wall = true
+	else:
+		was_touching_wall = false
 
 
 func light_switched_off():

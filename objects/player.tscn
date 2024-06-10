@@ -212,4 +212,8 @@ wait_time = 0.25
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_7ytaw")
 
+[node name="WallSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_y103q")
+pitch_scale = 1.75
+
 [connection signal="timeout" from="FootstepsTimer" to="." method="_on_footsteps_timer_timeout"]
