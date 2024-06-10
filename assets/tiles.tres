@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://taxbgeytr14v" path="res://assets/tile.png" id="5_ofti2"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_d3ctr"]
-scenes/1/scene = ExtResource("1_fl54l")
-scenes/2/scene = ExtResource("2_7545g")
 scenes/3/scene = ExtResource("3_ra704")
 scenes/4/scene = ExtResource("4_ggnmv")
+scenes/5/scene = ExtResource("2_7545g")
+scenes/6/scene = ExtResource("1_fl54l")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ew1w"]
 texture = ExtResource("5_ofti2")
