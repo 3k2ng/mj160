@@ -12,10 +12,15 @@ func _ready():
 func load_map(index : int):
 	if map_node != null:
 		map_node.queue_free()
-	map_node = maps[map_index].instantiate()
+	map_node = maps[index].instantiate()
 	add_child(map_node)
 	map_node.connect("initialised", _on_map_initialised)
 	map_node.connect("completed", _on_map_completed)
+	# music
+	if map_node.music != $Music.stream:
+		$Music.stop()
+		$Music.stream = map_node.music
+		$Music.play()
 
 func _on_map_initialised(spawn_position):
 	$Player.position = spawn_position
@@ -26,4 +31,3 @@ func _on_map_completed():
 	else:
 		map_index += 1
 		load_map(map_index)
-	

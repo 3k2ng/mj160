@@ -10,6 +10,8 @@ var switched = false
 
 var exit_door : AnimatedSprite2D
 
+@export var music : AudioStream
+
 func _on_tile_map_child_entered_tree(node):
 	if node.is_in_group("enter_door"):
 		spawn_position = node.global_position
@@ -20,8 +22,8 @@ func _on_tile_map_child_entered_tree(node):
 	if node.is_in_group("light_switch"):
 		node.connect("switched", switch_light)
 
-# TODO Make everything go dark
 func switch_light():
+	$TileMap.modulate = Color(0.1, 0.1, 0.1)
 	switched = true
 	exit_door.disabled = false
 
