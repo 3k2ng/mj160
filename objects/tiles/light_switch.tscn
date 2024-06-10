@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c526og5aiqxrp"]
+[gd_scene load_steps=8 format=3 uid="uid://c526og5aiqxrp"]
 
 [ext_resource type="Script" path="res://objects/tiles/light_switch.gd" id="1_bt5js"]
 [ext_resource type="Texture2D" uid="uid://bqrlao3gky6cg" path="res://assets/switch.png" id="1_mbqlc"]
+[ext_resource type="AudioStream" uid="uid://dolg6yfglvjut" path="res://assets/sfx/SFX_-_flip1.wav" id="3_sab4q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qewjx"]
 atlas = ExtResource("1_mbqlc")
@@ -40,5 +41,9 @@ shape = SubResource("RectangleShape2D_pqmpp")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="SwitchSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sab4q")
+volume_db = 4.522
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

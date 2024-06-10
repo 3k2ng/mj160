@@ -1,5 +1,7 @@
 extends Node
 
+@onready var win_sfx = $WinSFX
+
 @export var maps : Array[PackedScene]
 
 @export var map_index = 0
@@ -27,6 +29,7 @@ func _on_map_initialised(spawn_position):
 	$Player.position = spawn_position
 
 func _on_map_completed():
+	win_sfx.play()
 	if map_index == len(maps) - 1:
 		print("you win") # TODO
 	else:

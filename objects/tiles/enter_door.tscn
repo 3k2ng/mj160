@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2xlov327oegq"]
+[gd_scene load_steps=8 format=3 uid="uid://d2xlov327oegq"]
 
 [ext_resource type="Texture2D" uid="uid://de1uiisre7xet" path="res://assets/door.png" id="1_s6dk3"]
 [ext_resource type="Script" path="res://objects/tiles/enter_door.gd" id="1_sxu6e"]
+[ext_resource type="AudioStream" uid="uid://cwxnidcmae87a" path="res://assets/sfx/SFX_-_door_open.wav" id="3_cdmlm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njpi8"]
 atlas = ExtResource("1_s6dk3")
@@ -41,3 +42,7 @@ script = ExtResource("1_sxu6e")
 y_sort_enabled = true
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_n0nal")
+
+[node name="OpenSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cdmlm")
+autoplay = true

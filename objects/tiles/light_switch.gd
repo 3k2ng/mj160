@@ -15,3 +15,4 @@ func _on_area_2d_body_entered(body):
 		emit_signal("switched")
 		on = not on
 		$Timer.start()
+		switch_sfx.play()
