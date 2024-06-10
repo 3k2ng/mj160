@@ -36,7 +36,8 @@ func normalize(vec):
 	
 func _physics_process(delta):
 	if(visible):
-		C = get_tree().get_first_node_in_group("player").position
+		#C = get_tree().get_first_node_in_group("player").position
+		C = get_tree().get_first_node_in_group("player").global_position
 		
 		speed_modifier = 1 + timer/15.0
 		var monster_speed = 5.0 + speed_modifier
