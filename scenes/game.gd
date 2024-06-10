@@ -30,6 +30,7 @@ func _on_map_completed():
 	if map_index == len(maps) - 1:
 		print("you win") # TODO
 	else:
+		$Player.reset()
 		map_index += 1
 		load_map(map_index)
 
