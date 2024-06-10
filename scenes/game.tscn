@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://6tnt2x3vwi6t"]
+
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_ltqdq"]
+[ext_resource type="PackedScene" uid="uid://bresx5varodj3" path="res://scenes/levels/testmap_01.tscn" id="2_qk2gb"]
+[ext_resource type="PackedScene" uid="uid://bhlbmcyn168ti" path="res://scenes/levels/testmap_02.tscn" id="3_pxv4a"]
+[ext_resource type="PackedScene" uid="uid://caovab6637y8m" path="res://objects/player.tscn" id="4_qo52f"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_ltqdq")
+maps = Array[PackedScene]([ExtResource("2_qk2gb"), ExtResource("3_pxv4a")])
+
+[node name="Player" parent="." instance=ExtResource("4_qo52f")]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
