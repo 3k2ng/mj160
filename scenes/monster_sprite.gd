@@ -9,9 +9,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var u = get_parent().position - get_parent().C
-	print(get_parent().position)
-	print(get_parent().C)
-	print("\n")
 	
 	if get_parent().length(u) < 4 * get_parent().R:
 		if abs(u.x) >= abs(u.y):
