@@ -1,8 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://caovab6637y8m"]
+[gd_scene load_steps=29 format=3 uid="uid://caovab6637y8m"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dcg5u"]
 [ext_resource type="Texture2D" uid="uid://danc43gof10ta" path="res://assets/player/player_dark.png" id="2_jdhsi"]
 [ext_resource type="Texture2D" uid="uid://dm34l4s1cuvd8" path="res://assets/player/player.png" id="3_7ssv8"]
+[ext_resource type="AudioStream" uid="uid://cg07cwmgoy2rb" path="res://assets/sfx/SFX_-_tile.wav" id="5_7ytaw"]
+[ext_resource type="AudioStream" uid="uid://eo2164sbipj3" path="res://assets/sfx/SFX_-_tile_2.wav" id="6_y103q"]
+[ext_resource type="AudioStream" uid="uid://daeprifyucva2" path="res://assets/sfx/SFX_-_tile_3.wav" id="7_p18d2"]
+[ext_resource type="AudioStream" uid="uid://c2qpyy3vflkgp" path="res://assets/sfx/SFX_-_tile_4.wav" id="8_kx08i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qmgak"]
 atlas = ExtResource("2_jdhsi")
@@ -166,6 +170,17 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnk03"]
 size = Vector2(64, 111)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g55mq"]
+streams_count = 4
+stream_0/stream = ExtResource("5_7ytaw")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_y103q")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_p18d2")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_kx08i")
+stream_3/weight = 1.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -186,3 +201,15 @@ offset = Vector2(-3.7, 0)
 position = Vector2(0, 3.5)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_xnk03")
+
+[node name="FootstepsSFX" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_g55mq")
+panning_strength = 2.0
+
+[node name="FootstepsTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7ytaw")
+
+[connection signal="timeout" from="FootstepsTimer" to="." method="_on_footsteps_timer_timeout"]

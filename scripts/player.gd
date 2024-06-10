@@ -3,6 +3,11 @@ extends CharacterBody2D
 
 @onready var sprite = $AnimatedSprite2D
 
+@onready var footsteps_sfx = $FootstepsSFX
+@onready var footsteps_timer = $FootstepsTimer
+
+@onready var jump_sfx = $JumpSFX
+
 @export var gravity_scale : float = 1
 
 @export var SPEED: float = 600.0
@@ -47,13 +52,16 @@ func handle_inputs(delta):
 	# Jumping.
 	if Input.is_action_just_pressed("ui_accept") and (is_on_floor() or coyote_time > 0):
 		velocity.y = JUMP_VELOCITY
+		jump_sfx.play()
 	elif Input.is_action_just_pressed("ui_accept") and is_on_wall():
 		velocity.y = JUMP_VELOCITY
 		velocity.x = -facing * WALL_JUMP_VELOCITY
+		jump_sfx.play()
 	elif Input.is_action_just_pressed("ui_accept"):
 		jump_buffer = JUMP_BUFFER_MAX
 	elif jump_buffer > 0 and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		jump_sfx.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -70,10 +78,13 @@ func handle_animations():
 	
 	if not is_on_floor():
 		sprite.play(prefix + "jump")
+		footsteps_timer.stop()
 	elif velocity.x != 0.0:
 		sprite.play(prefix + "run")
+		if footsteps_timer.is_stopped(): footsteps_timer.start()
 	else:
 		sprite.play(prefix + "idle")
+		footsteps_timer.stop()
 
 
 func light_switched_off():
@@ -83,3 +94,7 @@ func light_switched_off():
 func light_switched_on():
 	prefix = ""
 	handle_animations()
+
+
+func _on_footsteps_timer_timeout():
+	footsteps_sfx.play()
