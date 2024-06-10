@@ -16,6 +16,7 @@ func load_map(index : int):
 	add_child(map_node)
 	map_node.connect("initialised", _on_map_initialised)
 	map_node.connect("completed", _on_map_completed)
+	map_node.connect("light_switched", _on_map_light_switched)
 	# music
 	if map_node.music != $Music.stream:
 		$Music.stop()
@@ -31,3 +32,10 @@ func _on_map_completed():
 	else:
 		map_index += 1
 		load_map(map_index)
+
+func _on_map_light_switched(status):
+	print(status)
+	if status:
+		$Player.light_switched_on()
+	else:
+		$Player.light_switched_off()
