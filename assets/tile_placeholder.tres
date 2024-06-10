@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://d33cof7vau5yd"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://d33cof7vau5yd"]
 
 [ext_resource type="Texture2D" uid="uid://dqapf1oh305p6" path="res://assets/tile_placeholder.png" id="1_djlfy"]
 [ext_resource type="PackedScene" uid="uid://qxk5b8p43hcu" path="res://objects/tiles/exit_door.tscn" id="2_86abg"]
 [ext_resource type="PackedScene" uid="uid://d2xlov327oegq" path="res://objects/tiles/enter_door.tscn" id="3_41idl"]
 [ext_resource type="PackedScene" uid="uid://c526og5aiqxrp" path="res://objects/tiles/light_switch.tscn" id="4_ea1nu"]
+[ext_resource type="PackedScene" uid="uid://c2v2w55xpefrl" path="res://objects/tiles/spawn_door.tscn" id="5_jvnuw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o041e"]
 texture = ExtResource("1_djlfy")
@@ -2552,6 +2553,7 @@ texture_region_size = Vector2i(64, 64)
 scenes/1/scene = ExtResource("2_86abg")
 scenes/2/scene = ExtResource("3_41idl")
 scenes/3/scene = ExtResource("4_ea1nu")
+scenes/4/scene = ExtResource("5_jvnuw")
 
 [resource]
 tile_size = Vector2i(64, 64)

@@ -6,6 +6,8 @@ signal completed
 
 var spawn_position : Vector2
 
+var monster_spawn_position : Vector2
+
 var switched = false
 
 var exit_door : AnimatedSprite2D
@@ -19,6 +21,8 @@ func _on_tile_map_child_entered_tree(node):
 	if node.is_in_group("exit_door"):
 		exit_door = node
 		node.connect("exited", signal_completed)
+	if node.is_in_group("spawn_door"):
+		monster_spawn_position = node.global_position
 	if node.is_in_group("light_switch"):
 		node.connect("switched", switch_light)
 
