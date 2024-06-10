@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c526og5aiqxrp"]
+[gd_scene load_steps=5 format=3 uid="uid://c526og5aiqxrp"]
 
 [ext_resource type="Script" path="res://objects/tiles/light_switch.gd" id="1_bt5js"]
+[ext_resource type="AudioStream" uid="uid://dolg6yfglvjut" path="res://assets/sfx/SFX_-_flip1.wav" id="2_4oj4b"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ftav8"]
 animations = [{
@@ -34,5 +35,8 @@ text = "Switch"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_pqmpp")
+
+[node name="SwitchSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4oj4b")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
