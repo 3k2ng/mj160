@@ -40,6 +40,9 @@ func switch_light():
 		$ShadowMoster.hide()
 	switched = not switched
 	emit_signal("light_switched", not switched)
+	$AudioStreamPlayer.play_dark()
+	$AudioStreamPlayer.this_cant_possibly_be_good_design_can_it = true
 
 func signal_completed():
 	emit_signal("completed")
+	$AudioStreamPlayer.stop()

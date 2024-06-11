@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkvcvsl1hmhc4"]
+[gd_scene load_steps=5 format=3 uid="uid://bkvcvsl1hmhc4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_0m88g"]
 [ext_resource type="TileSet" uid="uid://d33cof7vau5yd" path="res://assets/tiles.tres" id="2_cg2me"]
 [ext_resource type="PackedScene" uid="uid://ocpoddrkr0ca" path="res://scenes/shadow_moster.tscn" id="3_rgjij"]
+[ext_resource type="Script" path="res://scripts/level_music_changing.gd" id="4_qtja2"]
 
 [node name="Template" type="Node2D"]
 script = ExtResource("1_0m88g")
@@ -23,3 +24,9 @@ layer_1/tile_data = PackedInt32Array(1507328, 65538, 0, 1441792, 2, 0, 1376256, 
 
 [node name="ShadowMoster" parent="." instance=ExtResource("3_rgjij")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+script = ExtResource("4_qtja2")
+
+[connection signal="light_switched" from="." to="AudioStreamPlayer" method="_on_template_light_switched"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]
