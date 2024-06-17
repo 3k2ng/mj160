@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends AnimatableBody2D
 
 const R = 130.0
 const k = 10.0
@@ -17,6 +17,8 @@ var timer = 0.0
 var last_launch = -15.0
 
 var speed_modifier
+
+var velocity = Vector2(0,0)
 
 func exponent(b, x):
 	var result = 1
@@ -145,7 +147,8 @@ func _physics_process(delta):
 		if timer - last_launch > 1.7:
 			stage = 0
 			
-	velocity += acceleration * delta
-	timer += delta
+	
 	if visible:
-		move_and_slide()
+		velocity += acceleration * delta
+		position += velocity * delta
+		timer += delta
